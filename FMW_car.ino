@@ -41,7 +41,7 @@ void loop() {
     uint16_t clear, red, green, blue;
     tcs.getRawData(&red, &green, &blue, &clear);
 
-    if (green > red && green > blue) {  // Adjust condition based on detected color
+    if (red > 100 && green > 100 && blue < 100) {  // Adjust condition based on detected color
       stopCar();
       hc06.println("CaptureImage");  // Send the command to capture image via Bluetooth
       Serial.println("Command sent: CaptureImage");
